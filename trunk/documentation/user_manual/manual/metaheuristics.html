@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7. Meta-heuristics: several previous problems &mdash; or-tools User&#39;s Manual</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'doc version 0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.ico"/>
+    <link rel="top" title="or-tools User&#39;s Manual" href="../index.html" />
+    <link rel="next" title="7.1. Meta-heuristics in or-tools" href="metaheuristics/metaheuristics.html" />
+    <link rel="prev" title="6.9. Summary" href="ls/ls_summary.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="metaheuristics/metaheuristics.html" title="7.1. Meta-heuristics in or-tools"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ls/ls_summary.html" title="6.9. Summary"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">or-tools User&#39;s Manual</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="meta-heuristics-several-previous-problems">
+<span id="chapter-metaheuristics"></span><h1>7. Meta-heuristics: several previous problems</h1>
+<p class="rubric">Overview:</p>
+<p class="rubric">Prerequisites:</p>
+<ul class="simple">
+<li>Basic knowledge of C++.</li>
+<li>Basic knowledge of Constraint Programming (see chapter <a class="reference internal" href="introduction.html#chapter-introduction"><em>Introduction to constraint programming</em></a>).</li>
+<li>Basic knowledge of the Constraint Programming Solver (see chapter <a class="reference internal" href="first_steps.html#chapter-first-steps"><em>First steps with or-tools: cryptarithmetic puzzles</em></a>).</li>
+<li>Basic knowledge about how to define an objective function (see section <a class="reference internal" href="objectives/first_implementation.html#golomb-ruler-first-implementation"><em>An implementation of the first model</em></a>).</li>
+<li>Section <a class="reference internal" href="search_primitives/basic_working_search_algorithm.html#basic-working-search-algorithm"><em>Basic working of the solver: the search algorithm</em></a> helps but is not mandatory.</li>
+</ul>
+<p>xxxxx</p>
+<ul class="simple">
+<li>For the section <a class="reference internal" href="metaheuristics/jobshop_lns.html#large-neighborhood-search"><em>Large neighborhood search (LNS): the job-shop problem</em></a>: the chapter <a class="reference internal" href="LS.html#chapter-local-search"><em>Local search: the job-shop problem</em></a> about local search and the job-shop problem.</li>
+</ul>
+<p class="rubric">Files:</p>
+<p>You can find the code in the directory <tt class="docutils literal"><span class="pre">documentation/tutorials/cplusplus/chap7</span></tt>.</p>
+<p>The files inside this directory are:</p>
+<p class="rubric">Content:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/metaheuristics.html">7.1. Meta-heuristics in <em>or-tools</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/search_limits.html">7.2. Search limits and <tt class="docutils literal"><span class="pre">SearchLimit</span></tt>s</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/search_limits.html#an-example-of-a-custom-searchlimit">7.2.1. An example of a custom <tt class="docutils literal"><span class="pre">Searchlimit</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/jobshop_lns.html">7.3. Large neighborhood search (LNS): the job-shop problem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/jobshop_lns.html#what-is-large-neighborhood-search">7.3.1. What is Large Neighborhood Search?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/jobshop_lns.html#large-neighborhood-search-in-or-tools">7.3.2. Large Neighborhood Search in <em>or-tools</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/jobshop_lns.html#interesting-lns-operators">7.3.3. Interesting LNS operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/jobshop_lns.html#an-heuristic-to-solve-the-job-shop-problem">7.3.4. An heuristic to solve the job-shop problem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/restart.html">7.4. Restarting the search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/restart.html#luby">7.4.1. Luby</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/tabu.html">7.5. Tabu search (TS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/tabu.html#the-basic-idea">7.5.1. The basic idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/tabu.html#the-implementation">7.5.2. The implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/tabu.html#first-results">7.5.3. First results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/SA.html">7.6. Simulated annealing (SA)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/SA.html#the-basic-idea">7.6.1. The basic idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/SA.html#the-implementation">7.6.2. The implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/SA.html#first-results">7.6.3. First results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/GLS.html">7.7. Guided local search (GLS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/GLS.html#the-basic-idea">7.7.1. The basic idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/GLS.html#the-implementation">7.7.2. The implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/GLS.html#first-results">7.7.3. First results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/VNS.html">7.8. Variable Neigborhood Search (VNS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/VNS.html#the-basic-idea">7.8.1. The basic idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/VNS.html#the-implementation">7.8.2. The implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/VNS.html#first-results">7.8.3. First results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/default_search.html">7.9. Default search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metaheuristics/default_search.html#impact-based-search-strategies">7.9.1. Impact based search strategies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metaheuristics/metaheuristics_summary.html">7.10. Summary</a></li>
+</ul>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<table>
+<tr>
+<td width="60"><img src="../_static/logo.png" width="50" height="50"  alt="" /></td>
+<td><p class="library_name">Google <a href="http://code.google.com/p/or-tools/"><strong>or-tools</strong></a><br>open source library</p></td>
+</tr>
+</table>
+<h1>User's Manual</h1>
+
+  
+   
+
+
+
+<h3>Google search</h3>
+
+<form method="get" action="http://www.google.com/search">
+
+<div style="padding:-1px;width:15em;">
+<table border="0" cellpadding="0">
+<tr><td>
+<input type="text"   name="q" size="25"
+ maxlength="255" value="" />
+<input type="submit" value="Go" /></td></tr>
+<tr><td align="center" style="font-size:80%">
+Search:
+<select name="sitesearch" width="125" style="width: 125px">
+<option value="http://or-tools.googlecode.com/svn/trunk/documentation/user_manual/" selected>user's manual</option>
+<option value="http://or-tools.googlecode.com/svn/trunk/documentation/faq/">faq</option>
+<option value="http://or-tools.googlecode.com/svn/trunk/documentation/reference_manual/or-tools/">reference manual</option>
+<option value="http://or-tools.googlecode.com/svn/trunk/documentation/">All or-tools doc</option>
+</select>
+</td></tr>
+</table>
+</div>
+
+</form>
+</br>
+
+
+
+
+  <h3>Welcome</h3>
+  
+  <ul>
+  	<li><a href="../index.html">Content and foreword</a></li>
+  	<li><a href="http://or-tools.googlecode.com/svn/trunk/documentation/documentation_hub.html">Documentation's hub</a></li>
+	<li><a href="http://code.google.com/p/or-tools/">The or-tools open source library</a></li></li>	
+  </ul>
+  
+   
+	
+
+
+  <h3>Tutorial examples</h3>
+  
+  <ul>
+	<li><a href="http://or-tools.googlecode.com/svn/trunk/documentation/documentation_hub.html#tutorial_C++">C++</a></li>
+	<li><a href="http://or-tools.googlecode.com/svn/trunk/documentation/documentation_hub.html#tutorial_Python">Python</a></li>	
+	<li><a href="http://or-tools.googlecode.com/svn/trunk/documentation/documentation_hub.html#tutorial_Java">Java</a></li>
+	<li><a href="http://or-tools.googlecode.com/svn/trunk/documentation/documentation_hub.html#tutorial_Csharp">C#</a></li>
+</ul>
+  
+   
+	
+
+  <h3>Previous section</h3>
+  <p class="topless"><a href="ls/ls_summary.html"
+                        title="previous chapter">6.9. Summary</a></p>
+  <h3>Next section</h3>
+  <p class="topless"><a href="metaheuristics/metaheuristics.html"
+                        title="next chapter">7.1. Meta-heuristics in <em>or-tools</em></a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="metaheuristics/metaheuristics.html" title="7.1. Meta-heuristics in or-tools"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ls/ls_summary.html" title="6.9. Summary"
+             >previous</a> |</li>
+        <li><a href="../index.html">or-tools User&#39;s Manual</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012-2013, Google.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
